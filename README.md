@@ -1,4 +1,4 @@
-# Predicting Recipe Ratings
+# Predicting Recipe Ratings from Recipe Characteristics
 
 ## DSC 80 Final Project
 
