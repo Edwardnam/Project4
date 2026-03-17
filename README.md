@@ -28,13 +28,44 @@ The Recipes dataset and Interactions dataset were merged using the recipe ID to 
 
 Several exploratory visualizations were created to understand the structure of the dataset.
 
-## Key Observations
+---
 
-- Recipe preparation times are **heavily right-skewed**, with most recipes requiring less than 100 minutes.
-- Average ratings are **highly concentrated near 4–5**, suggesting that most recipes receive favorable reviews.
-- Scatterplots show **no strong relationship between preparation time or ingredient count and average rating**.
+## Distribution of Recipe Preparation Time
 
-These exploratory analyses suggest that simple recipe features alone may not strongly determine user ratings.
+<iframe
+src="assets/prep_time_distribution.html"
+width="800"
+height="600"
+frameborder="0">
+</iframe>
+
+Recipe preparation times are **heavily right-skewed**, meaning that most recipes require relatively little time while a smaller number take much longer to prepare. Most recipes fall below approximately 100 minutes.
+
+---
+
+## Distribution of Recipe Ratings
+
+<iframe
+src="assets/rating_distribution.html"
+width="800"
+height="600"
+frameborder="0">
+</iframe>
+
+Average ratings are **highly concentrated between 4 and 5**, indicating that most recipes on the platform receive favorable reviews from users.
+
+---
+
+## Ingredients vs Average Rating
+
+<iframe
+src="assets/ingredients_vs_rating.html"
+width="800"
+height="600"
+frameborder="0">
+</iframe>
+
+The scatterplot shows **no strong relationship between the number of ingredients and average rating**. Recipes with both few and many ingredients tend to receive similar ratings, suggesting that complexity alone may not determine user satisfaction.
 
 ---
 
@@ -55,12 +86,15 @@ Understanding this missingness mechanism is important because it affects how the
 A permutation test was conducted to determine whether **preparation time differs between recipes with missing ratings and those with observed ratings**.
 
 ## Test Statistic
+
 Difference in mean preparation time between recipes with missing ratings and recipes with observed ratings.
 
 ## Null Hypothesis (H₀)
+
 Preparation time is independent of whether a recipe's average rating is missing.
 
 ## Alternative Hypothesis (H₁)
+
 Recipes with missing ratings have different preparation times than recipes with observed ratings.
 
 The permutation test produced a **p-value below 0.05**, suggesting that preparation time may be associated with whether a recipe receives ratings.
@@ -79,9 +113,9 @@ The model is evaluated using **Mean Squared Error (MSE)**, which measures the av
 
 ## Features Used
 
-- `minutes` – preparation time
-- `n_ingredients` – number of ingredients
-- `n_steps` – number of steps
+- `minutes` – preparation time  
+- `n_ingredients` – number of ingredients  
+- `n_steps` – number of steps  
 
 Features that would not be available at prediction time, such as user ratings themselves, were excluded from the model.
 
@@ -95,8 +129,8 @@ The dataset was split into **training and testing sets using an 80/20 split**.
 
 ## Features
 
-- minutes (quantitative)
-- n_ingredients (quantitative)
+- minutes (quantitative)  
+- n_ingredients (quantitative)  
 - n_steps (quantitative)
 
 ## Performance
@@ -117,11 +151,11 @@ The final model uses a **Random Forest Regressor**, which can capture nonlinear 
 
 Two additional features were created:
 
-**log_minutes**
+### log_minutes
 
 The logarithm of preparation time. Preparation times are highly skewed, so this transformation reduces the influence of extreme values and helps the model capture patterns more effectively.
 
-**steps_per_ingredient**
+### steps_per_ingredient
 
 The ratio of the number of steps to the number of ingredients. This feature captures the **complexity of the recipe instructions**, which may influence how users evaluate recipes.
 
@@ -149,8 +183,8 @@ A fairness analysis was conducted to determine whether the model performs differ
 
 Recipes were divided into two groups based on the **median number of ingredients**:
 
-- **Group 1:** recipes with a number of ingredients less than or equal to the median
-- **Group 2:** recipes with a number of ingredients greater than the median
+- **Group 1:** recipes with a number of ingredients less than or equal to the median  
+- **Group 2:** recipes with a number of ingredients greater than the median  
 
 ## Evaluation Metric
 
@@ -184,12 +218,12 @@ This suggests that there is **no statistically significant evidence that the mod
 
 The analysis includes:
 
-- Exploratory data analysis of recipe preparation time and ratings
-- Missingness analysis
-- Hypothesis testing using permutation tests
-- Building a baseline linear regression model
-- Improving the model using a Random Forest with hyperparameter tuning
-- A fairness analysis evaluating model performance across recipe groups
+- Exploratory data analysis of recipe preparation time and ratings  
+- Missingness analysis  
+- Hypothesis testing using permutation tests  
+- Building a baseline linear regression model  
+- Improving the model using a Random Forest with hyperparameter tuning  
+- A fairness analysis evaluating model performance across recipe groups  
 
 ---
 
