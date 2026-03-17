@@ -6,7 +6,7 @@ This project analyzes the relationship between recipe characteristics and user r
 
 The goal of the project is to investigate whether features such as **preparation time, number of ingredients, and number of steps** can help predict the average rating of a recipe.
 
----
+--- 
 
 # Introduction
 
