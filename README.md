@@ -14,7 +14,7 @@ Online recipe platforms allow users to share recipes and evaluate them through r
 
 This project uses the **Recipes and Ratings dataset from Food.com** to investigate whether recipe characteristics can help explain and predict recipe ratings. By analyzing preparation time, number of ingredients, and number of cooking steps, this project explores whether simple structural features provide useful information about how users evaluate recipes.
 
-The dataset contains 83,782 rows information about recipes such as preparation time, number of ingredients, cooking steps, and user ratings. By combining recipe features with rating data, the project examines whether structural properties of recipes influence how users rate them.
+The dataset contains 83,782 rows information about recipes such as preparation time, number of ingredients, cooking steps, and user ratings. By combining recipe features with rating data since 2008, the project examines whether structural properties of recipes influence how users rate them.
 
 ## Dataset Description
 
